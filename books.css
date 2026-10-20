@@ -1,0 +1,118 @@
+.bookshelf {
+  --ink: #14323a;
+  --muted: #4a5f65;
+  --paper: #f2f6f5;
+  --card: #ffffff;
+  --line: #d3dedb;
+  --focus: #1f7a6d;
+  background: var(--paper);
+  color: var(--ink);
+  padding: clamp(2.5rem, 6vw, 5rem) 1.25rem;
+  font-family: "Atkinson Hyperlegible", system-ui, sans-serif;
+}
+
+.bookshelf-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.bookshelf-heading {
+  font-family: "Young Serif", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  line-height: 1.15;
+  margin: 0 0 0.5rem;
+}
+
+.bookshelf-intro {
+  max-width: 60ch;
+  margin: 0 0 2.25rem;
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1.55;
+}
+
+/* Same-size cards: 1 column on phones, up to 4 on wide screens */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+}
+
+.book-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.book-card:focus-within {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* Every cover has the same 2:3 portrait ratio so cards line up */
+.book-cover {
+  aspect-ratio: 2 / 3;
+  background: var(--cover-color, #2b4c7e);
+}
+
+.book-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.book-cover-fallback {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem 1.25rem;
+  color: #fff;
+  /* darker band on the left reads as the book's spine */
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.25) 0 8%, transparent 8%);
+}
+
+.fallback-title {
+  font-family: "Young Serif", Georgia, serif;
+  font-size: 1.6rem;
+  line-height: 1.2;
+  padding-left: 0.5rem;
+}
+
+.fallback-author {
+  font-size: 1rem;
+  padding-left: 0.5rem;
+}
+
+.book-info {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+}
+
+.book-title {
+  font-family: "Young Serif", Georgia, serif;
+  font-weight: 400;
+  font-size: 1.3rem;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.book-author {
+  margin: 0 0 0.5rem;
+  font-weight: 700;
+  color: var(--focus);
+}
+
+.book-description {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--muted);
+}
